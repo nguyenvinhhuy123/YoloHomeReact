@@ -159,3 +159,7 @@ vendor/
 
 #Expo buildings files
 .expo
+
+android
+
+ios
