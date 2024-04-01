@@ -16,12 +16,18 @@ App can be tested On Expo
 
 Run Frontend App: 
 
-`cd front-end`
+`cd front_end`
 
 `npx expo start`
 
+Alternative start command if expo cannot detect project: 
+
+`npx expo start --tunnel`
+
 [More about Expo and React-Native](https://reactnative.dev/docs/environment-setup)
 
-[Folder Structure for frontend](folder_structure.md)
+[Folder Structure](folder_structure.md)
+
+[React Nagivation Docs](https://reactnavigation.org/docs/getting-started/)
 
 
