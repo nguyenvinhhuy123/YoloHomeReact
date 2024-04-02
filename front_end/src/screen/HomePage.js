@@ -5,7 +5,7 @@ import * as React from 'react';
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#282424',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
 
 export default function HomePage() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.container}>
         <Text>Home Screen</Text>
         <View style={styles.container}>
-            <Text>Open up App.js to start working on your app!</Text>
+          <Text style={{ color: "#f8f8f8" }}>Open up App.js to start working on your app!</Text>
             <StatusBar style="auto" />
         </View>
       </View>
