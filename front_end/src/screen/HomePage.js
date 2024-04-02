@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#282424',
       alignItems: 'center',
-      justifyContent: 'top',
+      justifyContent: 'center',
       paddingTop: 50,
       paddingBottom: 50,
       paddingLeft: 20,
@@ -27,7 +27,7 @@ export default function HomePage() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Home Screen</Text>
-        <View style={{flex: 0.8, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={styles.container}>
           <Text style={{ color: "#f8f8f8" }}>Open up App.js to start working on your app!</Text>
         </View>
         <StatusBar style="auto" />
