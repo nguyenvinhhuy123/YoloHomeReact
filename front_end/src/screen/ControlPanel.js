@@ -23,14 +23,14 @@ const styles = StyleSheet.create({
     }
   });
 
-export default function HomePage() {
+export default function ControlPanel() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Home Screen</Text>
+        <Text style={styles.title}>Control Panel</Text>
         <View style={styles.container}>
-          <Text style={{ color: "#f8f8f8" }}>Open up App.js to start working on your app!</Text>
+          <Text style={{ color: "#f8f8f8" }}>This is ControlPanel screen!</Text>
+            <StatusBar style="auto" />
         </View>
-        <StatusBar style="auto" />
       </View>
       
     );
