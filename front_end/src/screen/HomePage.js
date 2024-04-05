@@ -26,10 +26,10 @@ const styles = StyleSheet.create({
 
 export default function HomePage() {
     onLightChange = (isEnable) => {
-      console.log("Light Changed to:", {isEnable});
+      console.log("Light Changed to:", isEnable);
     }
     onLEDColorChange = function (color) {
-      console.log("Color Changed to");
+      console.log("Color Changed to", color);
     };
     return (
       <View style={styles.container}>

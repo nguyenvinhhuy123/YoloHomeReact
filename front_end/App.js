@@ -3,6 +3,8 @@ import { StyleSheet} from 'react-native';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import NavBar from './src/components/NavBar';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -15,10 +17,17 @@ const styles = StyleSheet.create({
 
 export default function App() {
   return (
-    <NavigationContainer styles={styles.container}>{
-      <NavBar></NavBar>
-    }</NavigationContainer>
-
+    <GestureHandlerRootView style={{ flex: 1 }}>
+    {    
+      <NavigationContainer styles={styles.container}>
+        {
+          <NavBar></NavBar>
+        }
+      </NavigationContainer>
+    }
+    </GestureHandlerRootView>
   );
 }
+
+
 
