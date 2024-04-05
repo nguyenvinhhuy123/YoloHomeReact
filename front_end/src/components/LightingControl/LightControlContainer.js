@@ -65,23 +65,23 @@ export default function LightControlContainer(
                 value={isEnabled}
             ></Switch>
             <View style={styles.container}>
-            <Button color={'#FFB267'} title='Color Picker' onPress={() => setShowModal(true)} />
+                <Button color={'#FFB267'} title='Change LED Color' onPress={() => setShowModal(true)} />
 
-            <Modal transparent={true} visible={showModal} animationType='slide'>
-                <View style={styles.modalView}>
-                <ColorPicker 
-                style={styles.lightLEDChanger} value='red' onComplete={onColorChange}
-                boundedThumb={true}
-                >
-                    <Preview />
-                    <Panel1 />
-                    <HueSlider />
-                    <OpacitySlider />
-                    <Swatches />
-                </ColorPicker>
-                <Button color={'#FFB267'} title='Ok' onPress={() => setShowModal(false)} />
-                </View>
-            </Modal>
+                <Modal transparent={true} visible={showModal} animationType='slide'>
+                    <View style={styles.modalView}>
+                    <ColorPicker 
+                    style={styles.lightLEDChanger} value='red' onComplete={onColorChange}
+                    boundedThumb={true}
+                    >
+                        <Preview />
+                        <Panel1 />
+                        <HueSlider />
+                        <OpacitySlider />
+                        <Swatches />
+                    </ColorPicker>
+                    <Button color={'#FFB267'} title='Confirm' onPress={() => setShowModal(false)} />
+                    </View>
+                </Modal>
             </View>
             <LampCeiling color='#F8F8F8'/>
         </View>
