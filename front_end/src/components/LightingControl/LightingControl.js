@@ -5,7 +5,7 @@ import LightControlContainer from './LightControlContainer';
 const styles = StyleSheet.create({
     container: {
         width: 300,
-        flex: 0.3,
+        height: 120,
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'left',
