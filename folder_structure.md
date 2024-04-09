@@ -11,6 +11,7 @@
 │   │   │   ├───helper (helper functions or components)
 │   │   │   ├───utils (utilities functions, methods; ie. DateCalculator, DebugLogger, etc)
 │   │   │   ├───screen (Main screens in application; ie. HomePage, Control Panel, etc)
+│   │   │   ├───router (Routing function to connect to backend)
 │   │   │
 │   │   ├───App.js (main react-native front-end application component)
 │   │   ├───App.json (main react-native front-end application)
