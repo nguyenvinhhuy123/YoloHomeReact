@@ -14,7 +14,7 @@ export default function onLightChange(isEnable){
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            color : sendData
+            isEnable : sendData
         }),
     });
     postToggleChange().then(response => response.json())
