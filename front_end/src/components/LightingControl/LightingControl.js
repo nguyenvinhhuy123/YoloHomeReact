@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
 export default function LightingControl(
     {deviceName, 
     onLightChange,
-    onLEDColorChange}
+    onLEDColorChange,
+    initialToggleState,
+    initialLEDColor}
 )
 {
     return (
@@ -34,6 +36,8 @@ export default function LightingControl(
             <LightControlContainer 
             onLightChange={onLightChange}
             onLEDColorChange={onLEDColorChange}
+            initialToggleState = {initialToggleState}
+            initialLEDColor = {initialLEDColor}
             ></LightControlContainer>
         </View>
     )

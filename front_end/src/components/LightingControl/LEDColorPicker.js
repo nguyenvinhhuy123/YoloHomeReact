@@ -1,7 +1,6 @@
-import ColorPicker, { Panel1, Swatches, Preview , HueSlider } from 'reanimated-color-picker';
+import ColorPicker, { colorKit, Panel1, Swatches, Preview , HueSlider } from 'reanimated-color-picker';
 import { StyleSheet, View, Text, Modal, Button} from 'react-native';
 import {useState, useRef} from 'react';
-import ColorPickerRef from 'reanimated-color-picker';
 
 const styles = StyleSheet.create({
     container : {
@@ -41,14 +40,20 @@ const styles = StyleSheet.create({
         marginTop: 22,
     },
 })
-export default function LEDColorPicker({onColorChange}) {
+export default function LEDColorPicker({onColorChange, initialLEDColor}) {
     const pickerRef = useRef("white");
     const [showModal, setShowModal] = useState(false);
 
     const onPickedColor = (color) => {
-        onColorChange(color);
         console.log(color.hex);
         pickerRef.current = color.hex;
+        onColorChange(color);
+    }
+    
+    if (initialLEDColor != undefined)
+    {
+        console.log("1" + initialLEDColor);
+        pickerRef.current = colorKit.HEX(initialLEDColor);
     }
     return (
         <View style={styles.container}>

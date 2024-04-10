@@ -23,7 +23,9 @@ const styles = StyleSheet.create({
 })
 export default function LightControlContainer(
     {onLightChange,
-    onLEDColorChange}
+    onLEDColorChange,
+    initialToggleState,
+    initialLEDColor}
 ){
     const [isEnabled, setIsEnabled] = useState(false);
     const [lampColor, setLampColor] = useState("#f8f8f8");
@@ -36,8 +38,10 @@ export default function LightControlContainer(
         setLampColor(hex);
         onLEDColorChange(hex);
     }
-
-    
+    if (initialLEDColor != undefined)
+    {
+        setIsEnabled(initialToggleState);
+    }
     return (
         <View style={styles.container}>
             <Switch 
@@ -48,7 +52,7 @@ export default function LightControlContainer(
                 onValueChange={toggleSwitch}
                 value={isEnabled}
             ></Switch>
-            <LEDColorPicker onColorChange={onColorChange}></LEDColorPicker>
+            <LEDColorPicker onColorChange={onColorChange} initialLEDColor= {initialLEDColor}></LEDColorPicker>
             <LampCeiling color={lampColor}/>
         </View>
     )

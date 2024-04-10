@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
       color: "#f8f8f8",
       fontWeight: 'bold',
       textAlign: 'center',
-      paddingTop: 20,
       paddingBottom: 20,
     },
     image: {
@@ -49,12 +48,12 @@ const styles = StyleSheet.create({
 export default function HomePage() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Home Screen</Text>
         <Image
             style={styles.image}
             source={BedroomBG}
           >
           </Image >
+        <Text style={styles.title}>Home Screen</Text>
         <View style={styles.subcontainer}>
           <View style={{flex: 0.6,
               backgroundColor: "transparent",
