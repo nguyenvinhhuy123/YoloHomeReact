@@ -1,12 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import * as React from 'react';
-import { colorKit } from 'reanimated-color-picker';
 
 export default function onColorChange(color){
-    console.log("Color Changed to", color);
-    
-    //Send data is color value
-    //Change to hex color value (negate any error in hex value)
-    const sendData = colorKit.HEX(color).string(); 
+    const sendData = color; 
+    console.log("Color Changed to", sendData);
+    const apiUrl = process.env.EXPO_PUBLIC_SERVER_API_URL;
+    console.log("Dir", apiUrl);
+    const postColorChange = () => fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            color : sendData
+        }),
+    });
+    postColorChange().then(response => response.json())
 }
