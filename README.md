@@ -16,8 +16,11 @@ App can be tested On Expo
 
 Run Frontend App: 
 
+move to front_end dir:
 `cd front_end`
-
+install missing dependence if any:
+`npm i` 
+start expo deployment:
 `npx expo start`
 
 Alternative start command if expo cannot detect project: 
