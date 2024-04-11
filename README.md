@@ -16,6 +16,30 @@ App can be tested On Expo
 
 Run Frontend App: 
 
+If you have an expo account, contact me so that i can
+add you to the organization so that you run the front end on your personal computer
+
+### Local run:
+If you decide to run and test the app locally, go to file: 
+`front_end/app.json`
+
+find the line:
+```json
+"extra": {
+      "eas": {
+        "projectId": "SOME_NUMBER_HERE"`
+      }
+    },
+```
+
+change it to:
+```json
+"extra": {
+
+    },
+```
+and run the app similarly:
+
 move to front_end dir:
 `cd front_end`
 install missing dependence if any:
