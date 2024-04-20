@@ -14,7 +14,7 @@
 │   │   │   ├───router (Routing function to connect to backend)
 │   │   │
 │   │   ├───App.js (main react-native front-end application component)
-│   │   ├───App.json (main react-native front-end application)
+│   │   ├───App.json (main react-native front-end application configuration)
 │   │   ├───.env (environment variable if needed)
 │   │   ├───node-modules (installed modules and dependencies)
 │   │   ├───package.json (package manager JSON)

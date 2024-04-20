@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
 import * as React from 'react';
 import LightingControl from '../components/LightingControl/LightingControl';
-import onColorChange from '../router/ColorChangeRouter';
-import onLightChange from '../router/LightSwitchRouter';
+import PostColorChange from '../router/PostColorChange';
+import PostLightChange from '../router/PostLightSwitch';
 import BedroomBG from '../constants/BedroomBG';
+import GetLightSwitch from '../router/GetLightSwitch';
+import GetColorChange from '../router/GetColorChange';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -46,8 +49,23 @@ const styles = StyleSheet.create({
 
 
 export default function HomePage() {
+    const [isLoading, setLoading] = useState(true);
+    const [color, setColor] = useState("#ffffff");
+    const [light, setLight] = useState(false);
+
+    const getInitialColor = async () => {
+      color = await GetColorChange()
+      setColor(color)
+    }
+    const initialSwitch = async () => {
+        color = await GetLightSwitch()
+        setLight(color)
+    }
     return (
       <View style={styles.container}>
+        {isLoading} ? (
+        <ActivityIndicator />
+      ) : (
         <Image
             style={styles.image}
             source={BedroomBG}
@@ -71,11 +89,12 @@ export default function HomePage() {
           </View>
           <LightingControl 
               deviceName="LED Light" 
-              onLightChange={onLightChange}
-              onLEDColorChange={onColorChange}
+              onLightChange={PostLightChange}
+              onLEDColorChange={PostColorChange}
             ></LightingControl>
         </View>
         <StatusBar style="auto" />
+      )
       </View>
       
     );
