@@ -9,6 +9,8 @@ import BedroomBG from '../constants/BedroomBG';
 import GetLightSwitch from '../router/GetLightSwitch';
 import GetColorChange from '../router/GetColorChange';
 import FanControl from '../components/FanControl/FanControl';
+import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
+import PurifierControl from '../components/PurifierControl/PurifierControl';
 
 
 const styles = StyleSheet.create({
@@ -101,12 +103,12 @@ export default function HomePage() {
                 justifyContent: 'space-between',
                 gap: 20,}
             }>
-              <View style={{flex:0.4, height:150, gap:10, backgroundColor: "#fff"}}>
-                <Text style={color="#fff"}>Humidity</Text>
-              </View>
-              <View style={{flex:0.4, height:150,backgroundColor: "#fff"}}>
-                <Text style={color="#fff"}>Purifier</Text>
-              </View>
+              <HumidifierControl
+                deviceName="Humidifier" 
+              ></HumidifierControl>
+              <PurifierControl
+                deviceName="Purifier" 
+              ></PurifierControl>
             </View>
             <LightingControl 
                 deviceName="LED Light" 
@@ -114,8 +116,8 @@ export default function HomePage() {
                 onLEDColorChange={PostColorChange}
               ></LightingControl>
             <FanControl
-            deviceName="Fan"
-            initialFanStrength={0}
+              deviceName="Fan"
+              initialFanStrength={0}
             ></FanControl>
           </ScrollView>
           <StatusBar style="auto" />
