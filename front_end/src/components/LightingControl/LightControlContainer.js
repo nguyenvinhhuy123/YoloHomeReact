@@ -38,7 +38,7 @@ export default function LightControlContainer(
         setLampColor(hex);
         onLEDColorChange(hex);
     }
-    if (initialLEDColor != undefined)
+    if (initialToggleState != undefined)
     {
         setIsEnabled(initialToggleState);
     }

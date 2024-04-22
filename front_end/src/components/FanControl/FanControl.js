@@ -1,8 +1,5 @@
 import { StyleSheet, View, Text} from 'react-native';
 import * as React from 'react';
-import { Slider } from 'react-native-awesome-slider';
-import { useSharedValue } from 'react-native-reanimated';
-import { Fan } from 'lucide-react-native';
 import FanControlContainer from './FanControlContainer';
 
 
