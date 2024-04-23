@@ -11,6 +11,7 @@ import GetColorChange from '../router/GetColorChange';
 import FanControl from '../components/FanControl/FanControl';
 import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
 import PurifierControl from '../components/PurifierControl/PurifierControl';
+import DoorControl from '../components/DoorControl/DoorControl';
 
 
 const styles = StyleSheet.create({
@@ -119,6 +120,9 @@ export default function HomePage() {
               deviceName="Fan"
               initialFanStrength={0}
             ></FanControl>
+            <DoorControl
+              deviceName="Door Lock"
+            ></DoorControl>
           </ScrollView>
           <StatusBar style="auto" />
         </View>
