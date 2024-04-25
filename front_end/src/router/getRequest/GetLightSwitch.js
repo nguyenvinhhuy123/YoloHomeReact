@@ -13,7 +13,6 @@ export default async function GetLightSwitch(){
         const toggleValueJson = await getLatestToggleValue.json();
         if (toggleValueJson.isEnable === "1") return true;
         else return false;
-
     }
     catch (error) {
         console.log(error);

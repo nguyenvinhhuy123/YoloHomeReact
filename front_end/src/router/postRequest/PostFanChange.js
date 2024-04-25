@@ -1,22 +1,21 @@
 import * as React from 'react';
 
-export default async function PostColorChange(color){
-    const sendData = color; 
-    console.log("Color Changed to", sendData);
+export default async function PostFanChange(value){
+    const sendData = value; 
+    console.log("Fan Strength change to", sendData);
     const apiUrl = process.env.EXPO_PUBLIC_SERVER_API_URL;
-    console.log("Dir", apiUrl);
     try{
-        const postColorChange = await fetch(apiUrl, {
+        const postFanChange = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                color : sendData
+                value : sendData
             }),
         });
-        postColorChange().then(response => response.json())
+        postFanChange().then(response => response.json())
     } catch(err){
         //Maybe return error here so that front_end can inform user?
         console.log(err);
