@@ -58,10 +58,10 @@ export default function LightingControl(
                 <Text style={styles.number}>{lightStrength} LX</Text>
             </View>
             <LightControlContainer 
-            onLightChange={onLightChange}
-            onLEDColorChange={onLEDColorChange}
-            initialToggleState = {initialToggleState}
-            initialLEDColor = {initialLEDColor}
+                onLightChange={onLightChange}
+                onLEDColorChange={onLEDColorChange}
+                initialToggleState = {initialToggleState}
+                initialLEDColor = {initialLEDColor}
             ></LightControlContainer>
         </View>
     )

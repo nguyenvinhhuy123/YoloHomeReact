@@ -71,13 +71,13 @@ export default function HumidifierControl(
     }
     if (HumidifierPercentage == undefined)
     {
-        HumidifierPercentage = "-1%";
+        HumidifierPercentage = "-1";
     }
     return (
         <View style={styles.container}>
             <View style={[styles.sub_container, {flex: 1}]}>
                 <View style={{flex: 0.75}}>
-                    <Text style={styles.number}>{HumidifierPercentage}</Text>
+                    <Text style={styles.number}>{HumidifierPercentage}%</Text>
                     <Text style={[styles.sub_text, {flex: 0.3}] }>{deviceName}</Text>
                     <Text style={[styles.sub_text, {flex: 0.3}] }>Air</Text>
                 </View>
