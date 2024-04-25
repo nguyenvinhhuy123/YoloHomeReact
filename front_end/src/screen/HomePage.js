@@ -3,16 +3,16 @@ import { StyleSheet, Text, View, Image, ActivityIndicator, ScrollView } from 're
 import {useState, useEffect} from 'react';
 import * as React from 'react';
 import LightingControl from '../components/LightingControl/LightingControl';
-import PostColorChange from '../router/PostColorChange';
-import PostLightChange from '../router/PostLightSwitch';
+import PostColorChange from '../router/postRequest/PostColorChange';
+import PostLightChange from '../router/postRequest/PostLightSwitch';
 import BedroomBG from '../constants/BedroomBG';
-import GetLightSwitch from '../router/GetLightSwitch';
-import GetColorChange from '../router/GetColorChange';
 import FanControl from '../components/FanControl/FanControl';
 import HumidifierControl from '../components/HumidifierControl/HumidifierControl';
 import PurifierControl from '../components/PurifierControl/PurifierControl';
 import DoorControl from '../components/DoorControl/DoorControl';
-
+import { useLightColor, useLightToggle, 
+  useLightStrength, usePurifierTemperatureCelcius, useHumidityPercentage 
+, useFanStrength, useDoorToggle } from '../helper/globalState/globalState';
 
 const styles = StyleSheet.create({
     container: {
@@ -54,19 +54,15 @@ const styles = StyleSheet.create({
 
 export default function HomePage() {
     const [isLoading, setLoading] = useState(true);
-    const [lightColor, setColor] = useState("#ffffff");
-    const [lightSwitch, setLight] = useState(false);
+    const [lightStrengthLux, setLightStrengthLux] = useLightStrength()
+    const [lightToggle, setLightToggle] = useLightToggle();
+    const [lightColor, setLightColor] = useLightColor();
+    const [humidityPercentage, setHumidityPercentage] = useHumidityPercentage();
+    const [fanStrength, setFanStrength] = useFanStrength();
+    const [purifierTemperatureCelcius, setPurifierTemperatureCelcius] = usePurifierTemperatureCelcius();
+    const [doorToggle, setDoorToggle] = useDoorToggle();
 
-    const getInitialColor = async () => {
-      newColor = await GetColorChange()
-      setColor(newColor)
-      setLoading(false)
-    }
-    const getInitialSwitch = async () => {
-      newLight = await GetLightSwitch()
-      setLight(newLight)
-      setLoading(false)
-    }
+
     useEffect(() => {
       setTimeout(() => setLoading(false), 3000)
     }, [])
@@ -85,7 +81,7 @@ export default function HomePage() {
               style={styles.image}
               source={BedroomBG}
             >
-            </Image >
+          </Image >
           <Text style={styles.title}>Home Screen</Text>
           <ScrollView 
           style={styles.subcontainer}
@@ -106,22 +102,28 @@ export default function HomePage() {
             }>
               <HumidifierControl
                 deviceName="Humidifier" 
+                HumidifierPercentage={humidityPercentage}
               ></HumidifierControl>
               <PurifierControl
                 deviceName="Purifier" 
+                Temperature={purifierTemperatureCelcius}
               ></PurifierControl>
             </View>
             <LightingControl 
                 deviceName="LED Light" 
+                lightStrength={lightStrengthLux}
+                initialLEDColor={lightColor}
+                initialToggleState={lightToggle}
                 onLightChange={PostLightChange}
                 onLEDColorChange={PostColorChange}
               ></LightingControl>
             <FanControl
               deviceName="Fan"
-              initialFanStrength={0}
+              initialFanStrength={fanStrength}
             ></FanControl>
             <DoorControl
               deviceName="Door Lock"
+              initialToggleState={doorToggle}
             ></DoorControl>
           </ScrollView>
           <StatusBar style="auto" />
