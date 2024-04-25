@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, TextInput, Pressable} from 'react-native';
+import { StyleSheet, View, Text, TextInput, Pressable, Animated} from 'react-native';
 import * as React from 'react';
 import {Switch} from 'react-native-paper';
 import {useState} from 'react';
@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     icon: { 
         marginLeft: 10, 
     }, 
+    button:{
+        marginBottom: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+    },
 }); 
 
 export default function PasswordContainer(
@@ -44,7 +51,22 @@ export default function PasswordContainer(
     if (showPassword) {
         renderIcon = <Eye></Eye>
     }
-
+    const animated = new Animated.Value(1);
+    const fadeIn = () => {
+        Animated.timing(animated, {
+            toValue: 0.4,
+            duration: 100,
+            useNativeDriver: true,
+        }).start();
+    };
+    const fadeOut = () => {
+        Animated.timing(animated, {
+            toValue: 1,
+            duration: 200,
+            useNativeDriver: true,
+        }).start();
+        toggleShowPassword()
+    };
     return (
     <View style={styles.container}> 
         <TextInput 
@@ -58,8 +80,14 @@ export default function PasswordContainer(
             placeholderTextColor="#aaa"
             keyboardType="numeric"
         /> 
-        <Pressable onPress={toggleShowPassword}>
-            {renderIcon}
+        <Pressable style= {styles.button} onPressIn={fadeIn} onPressOut={fadeOut}>
+            <Animated.View
+            style={{
+                opacity: animated,
+            }}
+            >
+                {renderIcon}
+            </Animated.View>
         </Pressable>
     </View> 
     )

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
 
 export default function PurifierControl(
     {deviceName,
-    PurifierPercentage,
+    Temperature,
     onToggleChange,
     initialToggleState}
 ){
@@ -70,15 +70,15 @@ export default function PurifierControl(
     {
         setIsEnabled(initialToggleState);
     }
-    if (PurifierPercentage == undefined)
+    if (Temperature == undefined)
     {
-        PurifierPercentage = "-1%";
+        Temperature = "10";
     }
     return (
         <View style={styles.container}>
             <View style={[styles.sub_container, {flex: 1}]}>
                 <View style={{flex: 0.75}}>
-                    <Text style={styles.number}>{PurifierPercentage}</Text>
+                    <Text style={styles.number}>{Temperature}°C</Text>
                     <Text style={[styles.sub_text, {flex: 0.3}] }>{deviceName}</Text>
                     <Text style={[styles.sub_text, {flex: 0.3}] }>Air</Text>
                 </View>

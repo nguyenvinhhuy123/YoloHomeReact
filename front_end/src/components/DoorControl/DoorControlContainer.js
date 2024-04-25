@@ -137,7 +137,6 @@ export default function DoorControlContainer(
                         {lockIcon}
                     </Animated.View>
             </Pressable>
-
         </View>
     )
 }
